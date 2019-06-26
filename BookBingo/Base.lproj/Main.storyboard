@@ -1,24 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HdP-hM-NC0">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Book List-->
+        <scene sceneID="hBC-er-k2D">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="8dh-eW-6B4" customClass="BookListViewController" customModule="BookBingo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zBX-9d-JuI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-AX-5Yb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookListCell" id="MB7-B5-6dg">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MB7-B5-6dg" id="pXe-sZ-nMx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-0I-4Tu">
+                                                    <rect key="frame" x="350" y="0.0" width="30" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Edit"/>
+                                                    <connections>
+                                                        <segue destination="pho-ll-Jf6" kind="show" id="5Rd-eY-bSC"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8dh-eW-6B4" id="o20-M0-oJ4"/>
+                                    <outlet property="delegate" destination="8dh-eW-6B4" id="8G3-Wi-U7E"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eUj-AX-5Yb" firstAttribute="leading" secondItem="O5Z-Sj-c9p" secondAttribute="leading" id="A3r-VG-So7"/>
+                            <constraint firstItem="O5Z-Sj-c9p" firstAttribute="bottom" secondItem="eUj-AX-5Yb" secondAttribute="bottom" id="HiT-8Y-Mon"/>
+                            <constraint firstItem="O5Z-Sj-c9p" firstAttribute="trailing" secondItem="eUj-AX-5Yb" secondAttribute="trailing" id="P63-nK-hYx"/>
+                            <constraint firstItem="eUj-AX-5Yb" firstAttribute="top" secondItem="O5Z-Sj-c9p" secondAttribute="top" id="vFs-cZ-thn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O5Z-Sj-c9p"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Book List" id="TxC-jd-wLR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Af-ve-DPS">
+                            <connections>
+                                <segue destination="pho-ll-Jf6" kind="show" id="oID-q9-noY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookListTable" destination="eUj-AX-5Yb" id="b4d-Lv-Ihx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oyh-XQ-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.7101449275362" y="194.86607142857142"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pif-bj-Yci">
+            <objects>
+                <viewController id="pho-ll-Jf6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SUp-H4-DYi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZb-HJ-HPW">
+                                <rect key="frame" x="142.5" y="437.5" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iZb-HJ-HPW" firstAttribute="centerX" secondItem="SUp-H4-DYi" secondAttribute="centerX" id="m81-AF-iNb"/>
+                            <constraint firstItem="iZb-HJ-HPW" firstAttribute="centerY" secondItem="SUp-H4-DYi" secondAttribute="centerY" id="tCu-qw-i8F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="exE-c8-Zio"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tC5-8I-x89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1913.0434782608697" y="194.19642857142856"/>
+        </scene>
+        <!--r/fantasy 2019 Bingo Card-->
+        <scene sceneID="bRr-Wx-Ec3">
+            <objects>
+                <viewController id="O51-7M-twg" customClass="BingoCardViewController" customModule="BookBingo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oq3-n6-m20">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYk-ja-mdM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3tE-f3-lMU">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bingoCardCell" id="maB-lc-w7o">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="x71-29-dKx" kind="show" id="bvx-i5-nFd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="O51-7M-twg" id="Yen-kT-qXF"/>
+                                    <outlet property="delegate" destination="O51-7M-twg" id="u6P-f0-zlI"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tND-Zs-zaV" firstAttribute="bottom" secondItem="YYk-ja-mdM" secondAttribute="bottom" id="67r-3H-fRJ"/>
+                            <constraint firstItem="YYk-ja-mdM" firstAttribute="leading" secondItem="tND-Zs-zaV" secondAttribute="leading" id="9pa-2H-YGj"/>
+                            <constraint firstItem="YYk-ja-mdM" firstAttribute="top" secondItem="tND-Zs-zaV" secondAttribute="top" id="eEg-pB-gMH"/>
+                            <constraint firstItem="tND-Zs-zaV" firstAttribute="trailing" secondItem="YYk-ja-mdM" secondAttribute="trailing" id="x6P-I1-4HF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tND-Zs-zaV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="r/fantasy 2019 Bingo Card" id="Zv9-rU-mb6"/>
+                    <connections>
+                        <outlet property="collectionView" destination="YYk-ja-mdM" id="V68-cJ-A3B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ZB-nf-DBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.7101449275362" y="-453.34821428571428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Bcg-E4-qkc">
+            <objects>
+                <viewController id="x71-29-dKx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PRZ-lP-EqF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bingo Square Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-bY-n6j">
+                                <rect key="frame" x="131.5" y="437.5" width="151" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j7a-bY-n6j" firstAttribute="centerY" secondItem="PRZ-lP-EqF" secondAttribute="centerY" id="6vN-rS-VOl"/>
+                            <constraint firstItem="j7a-bY-n6j" firstAttribute="centerX" secondItem="PRZ-lP-EqF" secondAttribute="centerX" id="AQr-zU-hNm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rWF-zI-mSX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuU-wa-WSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913.0434782608697" y="-453.34821428571428"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8K4-ol-tnQ">
+            <objects>
+                <tabBarController id="HdP-hM-NC0" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P8c-gQ-mTr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WDj-es-16V" kind="relationship" relationship="viewControllers" id="yac-u7-fdw"/>
+                        <segue destination="NIg-Iw-zpx" kind="relationship" relationship="viewControllers" id="d1u-L1-s3O"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sR7-Rl-kNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-749" y="-129"/>
+        </scene>
+        <!--Bingo Card-->
+        <scene sceneID="d4O-3y-D5V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WDj-es-16V" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bingo Card" image="bingoCardIcon" id="ueT-t1-mOg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XhF-bi-sbA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O51-7M-twg" kind="relationship" relationship="rootViewController" id="TNa-Ry-qKh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qB-dr-oUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.56521739130437" y="-453.34821428571428"/>
+        </scene>
+        <!--Book List-->
+        <scene sceneID="jgg-0d-y1l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NIg-Iw-zpx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Book List" image="bookIcon" id="MJ4-W9-J6e"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QHM-1a-gRv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8dh-eW-6B4" kind="relationship" relationship="rootViewController" id="BEM-q1-G1o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LNg-rI-thd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.56521739130437" y="194.86607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bingoCardIcon" width="30" height="30"/>
+        <image name="bookIcon" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="oID-q9-noY"/>
+    </inferredMetricsTieBreakers>
 </document>
